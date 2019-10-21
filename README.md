@@ -1,6 +1,9 @@
-# default_docker
+# setup
 
-The idea is to user the `.docker/` folder to contain all the docker setup, while the app is going to reside in the root.
+The idea is that this project is the repository for an application (in this case a php CLI app). The application will reside in the root or the project, while the `.docker/` folder to contain all the docker setup files.
+
+
+# Shell
 
 I have created the file `docker.sh` to simplify the management of the image.
 
