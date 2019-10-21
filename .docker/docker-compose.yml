@@ -1,0 +1,32 @@
+version: '3.5'
+
+services:
+  name-specific:
+    image: name-specific
+    container_name: name-specific
+    working_dir: /app
+    build:
+      context: .
+      dockerfile: config/php/Dockerfile
+      args:
+        - BUILD_ENVIRONMENT=${BUILD_ENVIRONMENT}
+    volumes:
+      - ../:/app
+      - ../:/opt/project
+      - ./config/php/error.ini:/usr/local/etc/php/conf.d/zz-error.ini
+      - ./config/php/xdebug.ini:/usr/local/etc/php/conf.d/zz-xdebug.ini
+      - ./config/php/MySQLi.ini:/usr/local/etc/php/conf.d/zz-mysqli.ini
+      - ../logs/php:/var/log/php
+    networks:
+      - rabbitmq
+      - mysql
+    tty: true
+    stdin_open: true
+
+networks:
+  mysql:
+    external:
+      name: mysql
+  rabbitmq:
+    external:
+      name: rabbitmq
