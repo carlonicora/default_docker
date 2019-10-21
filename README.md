@@ -5,9 +5,9 @@ The idea is to user the `.docker/` folder to contain all the docker setup, while
 I have created the file `docker.sh` to simplify the management of the image.
 
 ```
-sudo ./docker build
-sudo ./docker rebuild
-sudo ./docker start
-sudo ./docker stop
-sudo ./docker run
+sudo ./docker.sh build
+sudo ./docker.sh rebuild
+sudo ./docker.sh start
+sudo ./docker.sh stop
+sudo ./docker.sh run
 ```
